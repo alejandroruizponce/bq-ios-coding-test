@@ -1,47 +1,24 @@
-![BQ logo][bqlogo]
+# MarvelApp
+---
+This application has been written in Swift 5 in XCode 11. It follows the VIPER architecture pattern with the aim of being easily scalable and long-term maintainable.
 
-# Coding challenge
+The VIPER modules of the application are:
+- SplashScreen Module: An initial module that synchronizes with the LaunchScreen and prepares the first module.
+- HomeModule: Main tab in our navigation bar where we have a character search engine, along with a list of initial results as an example and a detailed view of each character.
+- ArenaModule: Tab in charge of showing two selections of characters to be able to choose and carry out a fight between them based on their attributes.
+- RankingModule: Tab in charge of showing a ranking with the characters that have fought and a detailed view of each character.
 
-Greetings iOS lover!
+These tabs are launched within a generic TabBarController called "NavViewController". Each module is configured from "AppModules" and redirected by the main Router, all of this, among other things, is located inside the "BaseComponents" folder.
 
-If you have made it so far, that means that it's time to show your coding skills to us.
+Requests and responses to the Marvel API are made within the "DataManager" folder.
 
-As you probably already know, BQ is a company known for working on really different kind of projects: backend-based apps, IoT, robotics, 3D printing, camera, eBooks, etc.
-
-For this challenge we want you to put in practice daily knowledge related to iOS development with freedom to pick you own architecture, stack of libs that you usually used and event design decisions regarding UI. Actually, we want to see them as well as why you took them. So please write a `README` containing your development decisions within your repository in Markdown style.
-
-The **only requisite is to use Swift** as the programming language: we try to avoid as much as possible the old grandpa-C.
-
-So, now that we are ready to go, let's start!
-
-# Marvel Popularity Contest
-
-Do you like Marvel characters? Do you know who of them is the most famous? Some surprises could be hidden behind so much attention due to the movies...
-
-For that reason, we want you to build an app to create a ranking of Marvel characters by battling them using their popularity as their only weapon.
-
-All the information that you need to build it can be found in the [Marvel Developer Portal by using its public API](https://developer.marvel.com/).
-
-The app should have the following screens:
-- **Search**: a way to search characters by `name` with a list showing the results. By clicking in any of the resulted items, the app should navigate to the *Character profile*.
-- **Character profile**: a detailed view in which the `thumbnail` of the character, along with his/her/its `name` and `description`.
-- **Arena**: this screen should allow the user to search and pick 2 characters to battle them. The power level will be determined by the total amount of issues (comics) in which the character has appeared. The result of the combat should be shown to the user by using a popup with a button to navigate to the *Ranking*. Both characters involved in the battle will be saved to be shown in the *Ranking*.
-- **Ranking**: this screen should show a list of characters that have had already a battle. The list will be sorted by their power which should be equal to the of total `available` issues (comics) featuring this character. The list should be available offline. Again, if one of the character items is clicked, the app should navigate to the *Character profile*. 
-
-Ready to battle?
-
-# Extra points
-
-Apart from developing the app, we would positively value if you can implement a set of basic tests via **XCTest** and/or **XCUITest**. Some examples could be:
-- Check that without Internet connection an alert is shown to the user when searching for characters.
-- Check that without Internet the *Ranking* shows previous characters invovled in battles.
-
+Finally, the following Cocoa libraries are used:
+- Alamofire: To simplify requests and responses with the API.
+- Nuke: For downloading images of the characters via URL asynchronously.
+- Lottie-ios: For "Loading" animation.
+- SwiftPopup: To show the popups.
 
 ---
-
 # Attribution
 
 Data provided by Marvel. © 2014 Marvel
-
-[bqlogo]:https://storage.googleapis.com/bqcom15.statics.bq.com/bqcom/static/Pressroom/logos/logoandsymbol/BQlogosymbol200x200.jpg
-
