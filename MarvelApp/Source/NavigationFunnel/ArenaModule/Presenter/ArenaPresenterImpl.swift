@@ -16,9 +16,7 @@ extension ArenaPresenterImpl: ArenaPresenter {
             view?.showPopUpResult(with: firstFighter)
         } else if secondFighter.comicsCount > firstFighter.comicsCount {
             view?.showPopUpResult(with: secondFighter)
-        } else {
-            
-        }
+        } 
         UserDefaultsFactory.saveCharactersFight([firstFighter, secondFighter])
     }
     
